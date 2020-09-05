@@ -32,14 +32,14 @@ class Application(tk.Frame):
         self.file_pik["text"] = "Choose a file"
         self.file_pik["command"] = self.file_chooser
         self.file_pik["width"] = "20"
-        self.file_pik.grid(row=5, column=0, padx=10, pady=10)
+        self.file_pik.grid(row=2, column=1, padx=10, pady=10)
 
         # file saver
         self.file_save = tk.Button(self)
         self.file_save["text"] = "Save as"
         self.file_save["command"] = self.file_saver
         self.file_save["width"] = "20"
-        self.file_save.grid(row=7, column=0, padx=10, pady=10)
+        self.file_save.grid(row=3, column=1, padx=10, pady=10)
 
     def say_hi(self):
         print("hi there, everyone!")
@@ -62,11 +62,7 @@ class Application(tk.Frame):
             return
 
         shutil.copy2(self.fname, filename)
-        # my_file = open(filename, "w")
-        # my_file = self.fname
-        # my_file.close() 
-        # filename = 
-        # print (filename)
+        
 
 
 root = tk.Tk(className='Security app')
