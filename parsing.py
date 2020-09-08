@@ -1,6 +1,5 @@
 import re
 import json
-# from func import update_label
 
 
 def parse(file_name):

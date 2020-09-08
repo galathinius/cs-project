@@ -20,22 +20,8 @@ def update_label(file_name):
     for key in data:
         text_to_add += data[key]['description']
         text_to_add += '\n'
-    # print(text_to_add)
+
     file_label_global.configure(text=text_to_add)
-
-
-def say_hi():
-    print("hi there, everyone!")
-
-
-def hello_button():
-    # hi there
-    hi_there = tk.Button()
-    hi_there["text"] = "Hello World\n(click me)"
-    hi_there["command"] = say_hi
-    hi_there["width"] = "20"
-    hi_there.grid(row=0, column=0,
-                  padx=10, pady=10, columnspan=2, rowspan=2,)
 
 
 def file_chooser():
@@ -49,12 +35,10 @@ def file_chooser():
     file_name = fname.split('/')[-1]
     parse(fname)
     update_label(file_name)
-    # file_label_global.configure(text=f"You chose:\n{file_name}")
-    # print(fname)
 
 
 def file_piker_button():
-    # file piker
+
     file_pik = tk.Button()
     file_pik["text"] = "Choose a file"
     file_pik["command"] = file_chooser

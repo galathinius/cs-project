@@ -11,9 +11,8 @@ root = tk.Tk()
 root.title("Security app")
 root.geometry("800x500")
 
-# labels[]
 file_label()
-# hello_button()
+
 file_piker_button()
 file_saver_button()
 quit()
