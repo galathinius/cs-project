@@ -2,6 +2,7 @@ import re
 import json
 # from func import update_label
 
+
 def parse(file_name):
     f1 = open(file_name, "r")
     file_read = f1.read().replace('\n', 'bred').replace('\r', 'bred')
@@ -11,7 +12,7 @@ def parse(file_name):
     x = re.findall(pattern, file_read)
     x = [i.split('bred') for i in x]
 
-    parsed_data = {} 
+    parsed_data = {}
 
     for i in range(0, len(x)):
         item = {}
@@ -22,8 +23,7 @@ def parse(file_name):
                 row = j.split(':')
                 item[row[0].strip()] = row[1].strip()
         parsed_data[i] = item
-    
-    
+
     f2 = open('parsed.json', "w")
     f2.write(json.dumps(parsed_data))
 
@@ -32,4 +32,4 @@ def parse(file_name):
 
     re.purge()
 
-parse("example.txt")
+# parse("example.txt")
