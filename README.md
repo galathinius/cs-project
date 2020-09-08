@@ -1,3 +1,5 @@
+# cs-project
+
 # Importing Compliance Audit Policies
 
 A local desktop application for parsing and saving imported policies.
@@ -17,4 +19,3 @@ A local desktop application for parsing and saving imported policies.
 
 ## Setup
 Run the application through the ```refactor.py``` file.
-
