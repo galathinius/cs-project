@@ -23,7 +23,7 @@ def parse(file_name):
                 item[row[0].strip()] = row[1].strip()
         parsed_data[i] = item
 
-    f2 = open('parsed.json', "w")
+    f2 = open('./parsed.json', "w")
     f2.write(json.dumps(parsed_data))
 
     f1.close()
@@ -31,4 +31,4 @@ def parse(file_name):
 
     re.purge()
 
-# parse("example.txt")
+# parse("cs/lab1/example.audit")
