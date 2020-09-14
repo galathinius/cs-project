@@ -25,18 +25,7 @@ def make_check_list(data):
         data[str(i)]['check'] = make_chek(i, data[str(i)]['description'])
     return data  
 
-def show_chosen(items):
-    the_chosen = tk.Label()
-    the_chosen.grid(row=7, column=0, padx=10, pady=10,
-                           columnspan=2, rowspan=2,)
-    
-    text_to_add = f"You chose:\n"
-    for i in range(0, len(items)):
-        if items[str(i)]['check'].get():
-            text_to_add += items[str(i)]['description']
-            text_to_add += '\n'
 
-    the_chosen.configure(text=text_to_add)
 
 def what_did_i_choose_button(my_list):
     

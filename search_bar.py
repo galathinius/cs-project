@@ -21,7 +21,6 @@ def getSearch(entry):
             search_len+=1
     update_content(search_result)
 
-
 def search_button():
     entry = search_entry()
     search_button = tk.Button()

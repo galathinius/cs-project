@@ -6,7 +6,26 @@ from checks import make_check_list
 from parsing import parse
 
 
+def get_chosen():
+    data_to_filter = get_all_data()
+    data_to_return = {}
+    data_len = 0
+    for item in data_to_filter:
+        if data_to_filter[item]['check'].get():
+            data_to_return[str(data_len)] = data_to_filter[item]
+            data_len+=1
 
+    return data_to_return
+
+def get_converted_data():
+    data_to_convert = get_chosen()
+    data_to_return = ''
+    for item in data_to_convert:
+        data_to_return = f'{data_to_return}\n<custom_item>\n'
+        for key in data_to_convert[item]:
+            data_to_return = f'{data_to_return}{key}:{data_to_convert[item][key]}\n'
+        data_to_return = f'{data_to_return}</custom_item>\n'
+    return data_to_return
 
 def file_label():
 
@@ -27,14 +46,15 @@ def get_all_data():
 
 def read_from_file(file_name):
     ma_file = open('parsed.json', "r").read()
-    global global_data
+    # global global_data
     global_data = json.loads(ma_file)
     text_to_add = f"You chose:\n{file_name}\n\nThese are the tests:\n\n"
     update_file_label(text_to_add)
     update_content(global_data)
 
 def update_content(data):
-    make_check_list(data)
+    global global_data
+    global_data = make_check_list(data)
 
     # text_to_add = ''
     # list_length = len(data) if len(data) < 20 else 20
@@ -48,7 +68,7 @@ def update_content(data):
 def file_chooser():
     title = "seleeect"
     filetypes = (('Audit files', '*.audit'), ('all files', '*.*'))
-    global fname
+    
     fname = filedialog.askopenfilename(initialdir='.',
                                        title=title,
                                        filetypes=filetypes)
@@ -63,13 +83,19 @@ def file_piker_button():
     file_pik["width"] = "20"
     file_pik.grid(row=0, column=0, padx=10, pady=10)
 
+def save_data_to_file(filename):
+    data_to_save = get_converted_data()
+    f2 = open(filename, "w")
+    f2.write(data_to_save)
+    f2.close()
+
 def file_saver():
     filename = filedialog.asksaveasfilename(
         initialdir=".", title="Select folder", defaultextension=".audit")
     if filename is None:  # asksaveasfile return `None` if dialog closed with "cancel".
         return
 
-    shutil.copy2(fname, filename)
+    save_data_to_file(filename)
 
 def file_saver_button():
     file_save = tk.Button()
