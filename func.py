@@ -7,17 +7,23 @@ from parsing import parse
 
 
 def get_chosen():
+    # print('get chosen')
+
     data_to_filter = get_all_data()
+    # from pprint import pprint
+    # pprint(data_to_filter)
     data_to_return = {}
     data_len = 0
     for item in data_to_filter:
-        if data_to_filter[item]['check'].get():
-            data_to_return[str(data_len)] = data_to_filter[item]
-            data_len+=1
+        if 'check' in data_to_filter[item]:
+            if data_to_filter[item]['check'].get():
+                data_to_return[str(data_len)] = data_to_filter[item]
+                data_len+=1
 
     return data_to_return
 
 def get_converted_data():
+    # print('converting')
     data_to_convert = get_chosen()
     data_to_return = ''
     for item in data_to_convert:
@@ -45,25 +51,18 @@ def get_all_data():
     return global_data
 
 def read_from_file(file_name):
-    ma_file = open('parsed.json', "r").read()
+    ma_file = open('parsed.json', "r")
+    file_data = ma_file.read()
     # global global_data
-    global_data = json.loads(ma_file)
+    global_data = json.loads(file_data)
     text_to_add = f"You chose:\n{file_name}\n\nThese are the tests:\n\n"
     update_file_label(text_to_add)
     update_content(global_data)
+    ma_file.close()
 
 def update_content(data):
     global global_data
     global_data = make_check_list(data)
-
-    # text_to_add = ''
-    # list_length = len(data) if len(data) < 20 else 20
-    # for key in range(0, list_length):
-    #     text_to_add += data[str(key)]['description']
-    #     text_to_add += '\n'
-    # content_label = tk.Label(text=text_to_add)
-    # content_label.grid(row=7, column=0, padx=10, pady=10,
-    #                        columnspan=2, rowspan=2,)
     
 def file_chooser():
     title = "seleeect"

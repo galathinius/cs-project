@@ -7,8 +7,6 @@ def quit():
     quit.grid(row=0, column=10, padx=10, pady=10)
 
 
-
-
 root = tk.Tk()
 root.title("Security app")
 root.geometry("800x500")

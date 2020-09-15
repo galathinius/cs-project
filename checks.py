@@ -1,43 +1,25 @@
 import tkinter as tk
 
 
-# root = tk.Tk()
-# root.title("Security app")
-# root.geometry("800x500")
-
-info = {'0': 
-        {'description': 'some info'},
-        '1': 
-        {'description': 'other info'},
-        '2': 
-        {'description': 'nothing to see here'}
-        }
-
-
-def make_chek(index, text):
+def make_chek(frame, index, text):
     var = tk.IntVar()
-    tk.Checkbutton(text=text, variable=var).grid(row=index + 5, column=0)
+    tk.Checkbutton(frame, text=text, variable=var).grid(row=index + 5, column=0)
     return var
 
+frames = []
+
 def make_check_list(data):
-    list_length = len(data) if len(data) < 20 else 20
+    print('make cek list chemat')
+    if frames:
+        frames[0].destroy
+        frames.pop()
+    frame = tk.Frame()
+    frames.append(frame)
+    frame.grid(row = 3, column = 0, columnspan = 20)
+
+    list_length = min(20, len(data))
     for i in range(0, list_length):
-        data[str(i)]['check'] = make_chek(i, data[str(i)]['description'])
+        data[str(i)]['check'] = make_chek(frame, i, data[str(i)]['description'])
+        
     return data  
 
-
-
-def what_did_i_choose_button(my_list):
-    
-    chosen = tk.Button()
-    chosen["text"] = "what did I choose?"
-    chosen["command"] = lambda: show_chosen(my_list)
-    chosen["width"] = "50"
-    chosen.grid(row=0, column=5,
-                  padx=10, pady=10, columnspan=2, rowspan=2,)
-
-# the_list = make_check_list(info)
-# what_did_i_choose_button(the_list)
-
-
-# root.mainloop()
