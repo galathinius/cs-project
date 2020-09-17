@@ -31,4 +31,4 @@ def parse(file_name):
 
     re.purge()
 
-# parse("example.txt")
+# parse("cs/lab1/example.audit")
