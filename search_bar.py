@@ -11,7 +11,9 @@ def search_entry():
     return entry
 
 def getSearch(entry):
+    print('searching')
     entry_data = entry.get()
+    print(entry_data)
     all_data = get_all_data()
     search_result = {}
     search_len = 0

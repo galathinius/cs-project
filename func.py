@@ -55,7 +55,7 @@ def read_from_file(file_name):
     file_data = ma_file.read()
     # global global_data
     global_data = json.loads(file_data)
-    text_to_add = f"You chose:\n{file_name}\n\nThese are the tests:\n\n"
+    text_to_add = f"You chose:\n{file_name}\n\nThese are the tests:"
     update_file_label(text_to_add)
     update_content(global_data)
     ma_file.close()
@@ -102,3 +102,5 @@ def file_saver_button():
     file_save["command"] = file_saver
     file_save["width"] = "20"
     file_save.grid(row=0, column=1, padx=10, pady=10)
+
+
