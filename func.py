@@ -5,13 +5,10 @@ import json
 from checks import make_check_list
 from parsing import parse
 
+# global_data = {}
 
 def get_chosen():
-    # print('get chosen')
-
     data_to_filter = get_all_data()
-    # from pprint import pprint
-    # pprint(data_to_filter)
     data_to_return = {}
     data_len = 0
     for item in data_to_filter:
@@ -53,16 +50,16 @@ def get_all_data():
 def read_from_file(file_name):
     ma_file = open('parsed.json', "r")
     file_data = ma_file.read()
-    # global global_data
     global_data = json.loads(file_data)
     text_to_add = f"You chose:\n{file_name}\n\nThese are the tests:"
     update_file_label(text_to_add)
     update_content(global_data)
     ma_file.close()
 
-def update_content(data):
+def update_content(data, r = None):
     global global_data
-    global_data = make_check_list(data)
+    global_data = make_check_list(data, r)
+    return global_data
     
 def file_chooser():
     title = "seleeect"

@@ -10,10 +10,10 @@ def search_entry():
     entry.grid(row=1, column=0)
     return entry
 
-def getSearch(entry):
-    print('searching')
+def get_search(entry):
+    # print('searching')
     entry_data = entry.get()
-    print(entry_data)
+    # print(entry_data)
     all_data = get_all_data()
     search_result = {}
     search_len = 0
@@ -26,7 +26,7 @@ def getSearch(entry):
 def search_button():
     entry = search_entry()
     search_button = tk.Button()
-    search_button["command"] = lambda: getSearch(entry)
+    search_button["command"] = lambda: get_search(entry)
     search_button["text"] = "Search"
     search_button["width"] = "20"
     search_button.grid(row=1, column=1)
