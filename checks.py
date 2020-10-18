@@ -6,7 +6,7 @@ def make_chek(frame, index, text, r):
     var = tk.IntVar()
     rate = '________'
     if r:
-        time.sleep(.300)
+        time.sleep(.200)
         rate = 'Success_' if random()>0.6 else 'Fail_'
 
     tk.Checkbutton(frame, text=f'{rate}{text}', variable=var).grid(row=index + 6, column=0)
