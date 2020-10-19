@@ -21,16 +21,18 @@ def enforce_them(params):
     
 
 def popupmsg(msg):
-    LARGE_FONT= ("Helvetica", 20)
+    LARGE_FONT= ("Verdana", 12)
     popup = tk.Tk()
     popup.wm_title("!")
-    label = tk.Label(popup, text='please wait a little\n do not close tis window', font=LARGE_FONT, padx=1, pady=1)
-    label.grid(row=1, column=1, columnspan=2, rowspan=4)
+    label0 = tk.Label(popup, text='Thanks for waiting\n The following have been enforced:', font=LARGE_FONT, padx=1, pady=1)
+    label0.grid(row=1, column=1, columnspan=2, rowspan=4)
+    label1 = tk.Label(popup, text=msg, padx=1, pady=1)
+    label1.grid(row=7, column=1, columnspan=2, rowspan=4)
     B1 = tk.Button(popup, text="Okay", command = popup.destroy)
     B1.grid()
-    
-    time.sleep(.200)
-    label.configure(text=msg)
+
+    time.sleep(3)
     
     popup.mainloop()
 
+# popupmsg('waited......................................')

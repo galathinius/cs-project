@@ -12,7 +12,7 @@ def quit():
 
 root = tk.Tk()
 root.title("Security app")
-root.geometry("800x500")
+root.geometry("800x700")
 
 file_label()
 search_button()
