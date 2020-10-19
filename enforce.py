@@ -6,7 +6,7 @@ from threading import Event
 def enforce_it_button():
     enforce_it = tk.Button()
     enforce_it["command"] = lambda: enforce_them('params')
-    enforce_it["text"] = "enforce"
+    enforce_it["text"] = "Enforce"
     enforce_it["width"] = "20"
     enforce_it.grid(row=0, column=2)
 

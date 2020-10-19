@@ -5,11 +5,18 @@ import time
 def make_chek(frame, index, text, r):
     var = tk.IntVar()
     rate = '________'
+    color = ''
     if r:
         time.sleep(.200)
         rate = 'Success_' if random()>0.6 else 'Fail_'
+    
+    if rate == 'Success_':
+        color = 'green'
+    elif rate == 'Fail_': 
+        color = 'red'
+    else: color = 'black'
 
-    tk.Checkbutton(frame, text=f'{rate}{text}', variable=var).grid(row=index + 6, column=0)
+    tk.Checkbutton(frame, text=f'{rate}{text}', variable=var, fg = color).grid(row=index + 6, column=0)
     return var
 
 frames = []
